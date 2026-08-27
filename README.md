@@ -3,15 +3,7 @@
 **A strictly read-only RFID/NFC identification console for the Proxmark3 (Iceman firmware).**
 It identifies, describes and exports what a tag says about itself — and it physically cannot write, clone, emulate or simulate one.
 
-```
- ____  _____ ___ ____
-|  _ \|  ___|_ _|  _ \  ___ _   _  ___
-| |_) | |_   | || | | |/ _ \ | | |/ _ \
-|  _ <|  _|  | || |_| |  __/ |_| |  __/
-|_| \_\_|   |___|____/ \___|\__, |\___|
-                            |___/
-     READ-ONLY MODE - no write, clone, emulate or simulate commands exist
-```
+<img width="648" height="363" alt="image" src="https://github.com/user-attachments/assets/d6890139-573c-4d14-9b82-17dd0df22b69" />
 
 ---
 
