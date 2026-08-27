@@ -7,7 +7,7 @@ It identifies, describes and exports what a tag says about itself — and it phy
 
 ---
 
-## ⚠️ Legal notice and intended use
+##  Legal notice and intended use
 
 RFIDeye is an **auditing and diagnostic** tool, published for education and for defensive security work.
 
