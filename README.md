@@ -5,22 +5,6 @@ It identifies, describes and exports what a tag says about itself — and it phy
 
 <img width="648" height="363" alt="image" src="https://github.com/user-attachments/assets/d6890139-573c-4d14-9b82-17dd0df22b69" />
 
----
-
-##  Legal notice and intended use
-
-RFIDeye is an **auditing and diagnostic** tool, published for education and for defensive security work.
-
-* Use it **only** on cards, tags and systems that **you own**, or for which you hold **explicit written authorisation** from the owner or system administrator.
-* Reading, cloning or manipulating third-party credentials — transport cards, building badges, hotel keys, payment media — without authorisation is a criminal offence in most jurisdictions.
-* RFIDeye deliberately provides **no** write, clone, emulation or key-recovery capability. It will not help you forge or duplicate a credential, and that is by design, not by omission.
-* Key-recovery attacks (`nested`, `hardnested`, `darkside`, `autopwn`, `loclass`, …) and passive interception (`sniff`) are blocked at the command layer.
-* You are solely responsible for complying with the law where you are. The authors accept **no liability** for misuse.
-
-If you need to *write* to a tag, use the official Proxmark3 client directly. That is a deliberate boundary, not an inconvenience to be worked around.
-
----
-
 ## Features
 
 **Device handling**
