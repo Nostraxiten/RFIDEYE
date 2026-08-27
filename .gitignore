@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.eggs/
+
+# Tooling
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# RFIDeye local data - never commit scan data or dumps
+*.db
+dumps/
+reports/
+logs/
+*.log
+*.dic
+
+# OS
+.DS_Store
+Thumbs.db

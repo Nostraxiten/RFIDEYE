@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rfideye"
+version = "0.1.0"
+description = "Read-only RFID/NFC identification console for Proxmark3 (Iceman firmware)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+keywords = ["rfid", "nfc", "proxmark3", "iceman", "security-audit", "read-only"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+]
+
+# Three runtime dependencies, each earning its place:
+#   rich     - the coloured TUI the project is built around (tables, panels,
+#              spinners, themes). Nothing in the stdlib comes close.
+#   typer    - typed CLI parsing on top of click; the type hints we already
+#              write become the argument parser, so there is no second source
+#              of truth for options.
+#   pyserial - the only portable way to enumerate USB serial ports with their
+#              VID/PID, which is what makes autodetection reliable.
+# Everything else (sqlite3, json, csv, logging, subprocess) is stdlib.
+dependencies = [
+    "rich>=13.7",
+    "typer>=0.12",
+    "pyserial>=3.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.5",
+]
+
+[project.scripts]
+rfideye = "rfideye.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Nostraxiten/RFIDEYE"
+Issues = "https://github.com/Nostraxiten/RFIDEYE/issues"
+
+[tool.setuptools.packages.find]
+include = ["rfideye*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "S", "C4", "PL", "RUF"]
+ignore = [
+    "PLR0912",  # branch count: the menu dispatcher is a flat, readable switch
+    "PLR0913",  # argument count: CLI commands mirror their options
+    "PLR2004",  # magic values: SAK/ATQA constants read better inline
+    "E501",     # line length is enforced by the formatter, not the linter
+    "B008",     # typer.Option() in defaults is how typer declares options
+    "PLR0917",  # positional-argument count: same reason as PLR0913
+    "PLR0911",  # return count: the transit classifier is a flat lookup chain
+    "N818",     # GuardViolation reads better than GuardViolationError
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101", "PLR2004"]  # asserts and literals are the point of a test
